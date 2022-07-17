@@ -102,7 +102,10 @@
 ]
 
 4.  <h5>List All Customers </h5>
+
     1. `GET` - https://sathya-hall-booking-node-app.herokuapp.com/listcustomers
+
+
     2. Sample response
     [
     {
