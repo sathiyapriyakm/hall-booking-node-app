@@ -31,7 +31,7 @@ app.get('/', function (request, response) {
     const data = request.body;
     const {seat_count,amenities,room_name,price_per_hour}=request.body;
     if((!seat_count)||(!amenities)||(!room_name)||(!price_per_hour)){
-      response.send({msg:"Insuffecient details, Kindly provide all the following details seat_count, amenities, room_name,price_per_hour"});
+      response.status(400).send({msg:"Insuffecient details, Kindly provide all the following details seat_count, amenities, room_name,price_per_hour"});
     }else{
     const result=await client.db("hall-booking").collection("rooms").insertOne(data);;
     response.send(result);}
@@ -86,7 +86,7 @@ app.get('/', function (request, response) {
   
       res.send(result);
     } else {
-      res.send("Room is already booked for particular time");
+      res.status(400).send("Room is already booked for this time slot");
     }
   });
   
